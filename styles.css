@@ -1,7 +1,7 @@
 :root {
-    --primary-color: #6c63ff;
-    --secondary-color: #4d44db;
-    --dark-color: #2a2a72;
+    --primary-color: #f42e1c;
+    --secondary-color: #f42727;
+    --dark-color: #e4311d;
     --light-color: #f8f9fa;
     --text-color: #333;
     --text-light: #777;
@@ -418,7 +418,7 @@ img {
 
 /* Footer */
 .footer {
-    background-color: var(--dark-color);
+    background-color: #800000;
     color: var(--white);
     padding: 60px 0 20px;
 }
