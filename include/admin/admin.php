@@ -248,7 +248,7 @@
             echo '</table></div>';
         } elseif ($page === 'contacts') {
             echo '<div class="card"><h2 class="card-title">Contacted Users</h2>';
-            $result = $conn->query("SELECT id, name, email, subject, message, submitted_at FROM contact_messages ORDER BY submitted_at DESC");
+            $result = $conn->query("SELECT id, name, email, subject, message, date FROM contact ");
             echo '<table><tr><th>ID</th><th>Name</th><th>Email</th><th>Subject</th><th>Message</th><th>Date</th></tr>';
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>
@@ -257,7 +257,7 @@
                     <td>{$row['email']}</td>
                     <td>{$row['subject']}</td>
                     <td>{$row['message']}</td>
-                    <td>{$row['submitted_at']}</td>
+                    <td>{$row['date']}</td>
                 </tr>";
             }
             echo '</table></div>';

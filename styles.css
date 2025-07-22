@@ -375,10 +375,14 @@ img {
 }
 
 .contact-info i {
-    margin-right: 15px;
-    color: var(--primary-color);
+    color: #ffffff;
     font-size: 1.2rem;
     width: 20px;
+}
+
+.contact-info .cicon i{
+    color: var(--primary-color) ;
+    margin: 10px;
 }
 
 .social-links {
@@ -474,13 +478,17 @@ img {
 }
 
 .footer-social h3 {
-    color: var(--white);
+    color: #ddd;
     margin-bottom: 20px;
 }
 
 .social-icons {
     display: flex;
     gap: 15px;
+}
+
+.social-icons i{
+    color: #ddd;
 }
 
 .social-icons a {

@@ -68,7 +68,7 @@ $result = $conn->query($sql);
             border-top: 1px solid #ddd;
         }
         .card a:hover {
-            background: #0056b3;
+            background: #fe3c35d7;
         }
     </style>
 </head>
