@@ -246,7 +246,6 @@ $images = [
             width: fit-content;
         }
 
-        /* Slider Styles */
         .slider-container {
             position: relative;
             width: 100%;
@@ -255,24 +254,22 @@ $images = [
             border-radius: 10px;
             margin-bottom: 20px;
         }
-
         .slider {
             display: flex;
-            width: 300%;
             height: 100%;
             transition: transform 0.5s ease-in-out;
         }
-
         .slide {
-            width: 33.333%;
-            height: 100%;
+            width: 60%; 
             flex-shrink: 0;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         .slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
         }
 
         .slider-nav {

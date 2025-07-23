@@ -43,7 +43,7 @@ $result = $conn->query($sql);
         .card img {
             width: 100%;
             height: 200px;
-            object-fit: cover;
+            object-fit: ;
         }
         .card-content {
             padding: 15px;
@@ -56,6 +56,7 @@ $result = $conn->query($sql);
         .card p {
             font-size: 14px;
             color: #555;
+            padding: 10px;
         }
         .card a {
             display: block;
