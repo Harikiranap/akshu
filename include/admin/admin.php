@@ -205,6 +205,11 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="../../index.php" class="nav-link">
+                    <span class="nav-icon">🏠</span><span>Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="../dbmain/logout.php" class="nav-link <?= ($_GET['page'] ?? '') == 'logout' ? 'active' : '' ?>">
                     <span class="nav-icon">🔒</span><span>Logout</span>
                 </a>

@@ -125,7 +125,7 @@ $images = [
 
         .price {
             text-align: right;
-            color: #000000ff;
+            color: #fd0a0aff;
             font-weight: bold;
             font-size: 1.8rem;
             flex: 1 1 30%;
@@ -148,7 +148,7 @@ $images = [
         }
 
         .overview .tab {
-            background: #060606ff;
+            background: #f50c0cff;
             color: #fff;
             padding: 10px 20px;
             font-weight: bold;
@@ -174,7 +174,7 @@ $images = [
         }
 
         .booking-form h2 {
-            color: #020202ff;
+            color: #f60c0cff;
             margin-bottom: 20px;
             font-size: 1.3rem;
         }
@@ -200,7 +200,7 @@ $images = [
             margin-top: 20px;
             padding: 12px;
             width: 100%;
-            background-color: #000000ff;
+            background-color: #f61010ff;
             color: white;
             border: none;
             border-radius: 5px;
@@ -237,7 +237,7 @@ $images = [
         }
 
         .return {
-            background: #040404ff;
+            background: #f40e0eff;
             color: #fff;
             padding: 10px 20px;
             font-weight: bold;
@@ -262,7 +262,6 @@ $images = [
         .slide {
             width: 60%; 
             flex-shrink: 0;
-            border-radius: 10px;
             overflow: hidden;
         }
 

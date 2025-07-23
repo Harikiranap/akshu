@@ -87,7 +87,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             echo "<script>alert('User not found'); window.location.href='index.php';</script>";
         }
     }
-
     $stmt->close();
     $conn->close();
 }
@@ -97,25 +96,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EventPro - Event Management</title>
+  <title>Aakiran - Event Management</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- Loading Screen -->
-<div class="loading-screen" id="loadingScreen">
-  <div class="loading-spinner"></div>
-  <div class="loading-text">Loading Content...</div>
-</div>
-
 <!-- Navigation Bar -->
 <nav class="navbar">
   <div class="container">
-    <a href="#" class="logo">EventPro</a>
+    <a href="#about" class="logo">Akiran<span style="color:#000000"> Events</span></a>
     <div class="nav-links">
       <a href="#home" class="nav-link">Home</a>
       <a href="#about" class="nav-link">About Us</a>
+      <a href="#events" class="nav-link">Services</a>
       <a href="#contact" class="nav-link">Contact Us</a>
       <div class="auth-buttons">
         <?php if (isset($_SESSION['email'])): ?>
@@ -190,15 +184,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 </div>
 
 <!-- Home Section -->
+ <div class="home">
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Your Dream Event Starts Here</h1>
+                <h1>Lighting Up Your Special Moments</h1>
                 <p>Professional event management services for weddings, corporate events, and more.</p>
                 <a href="#events" class="btn btn-primary">Get Started</a>
             </div>
         </div>
     </section>
+  </div>
 
     <!-- About Us Section -->
     <section id="about" class="about-section">
@@ -206,11 +202,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             <h2>About Us</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>EventPro is a premier event management company dedicated to creating memorable experiences for our clients. With over 10 years of experience in the industry, we specialize in weddings, corporate events, and private parties.</p>
+                    <p>Akiran is a premier event management company dedicated to creating memorable experiences for our clients. With over 10 years of experience in the industry, we specialize in weddings, corporate events, and private parties.</p>
                     <p>Our team of professional event planners will work closely with you to bring your vision to life, handling every detail from venue selection to catering and entertainment.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865" alt="Event Team">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Event Team">
                 </div>
             </div>
         </div>
@@ -223,36 +219,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     <!-- Testimonials Section -->
     <section class="testimonials">
         <div class="container">
-            <h2>What Our Clients Say</h2>
+            <h2>HAPPY CLIENTS</h2>
             <div class="testimonial-slider">
                 <div class="testimonial">
                     <div class="testimonial-content">
-                        <p>"EventPro made our wedding day absolutely perfect! They handled everything seamlessly and we didn't have to worry about a thing."</p>
+                        <p>"Akiran made our wedding day absolutely perfect! They handled everything seamlessly and we didn't have to worry about a thing."</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J.">
-                        <h4>Sarah J.</h4>
+                        <img src="include/images/client.png" alt="Sarah J.">
+                        <h4>Kshamya </h4>
                         <p>Wedding Client</p>
                     </div>
                 </div>
                 <div class="testimonial">
                     <div class="testimonial-content">
-                        <p>"The corporate retreat organized by EventPro was flawless. Our team had an amazing time and everything was perfectly executed."</p>
+                        <p>"The corporate retreat organized by Akiran was flawless. Our team had an amazing time and everything was perfectly executed."</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T.">
-                        <h4>Michael T.</h4>
+                        <img src="include/images/client.png" alt="Michael T.">
+                        <h4>Vedansh </h4>
                         <p>Corporate Client</p>
                     </div>
                 </div>
                 <div class="testimonial">
                     <div class="testimonial-content">
-                        <p>"I can't recommend EventPro enough! They took care of every detail for my daughter's sweet sixteen and it was magical."</p>
+                        <p>"I can't recommend Akiran enough! They took care of every detail for my daughter's sweet sixteen and it was magical."</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa M.">
-                        <h4>Lisa M.</h4>
-                        <p>Private Party Client</p>
+                        <img src="include/images/client.png" alt="Lisa M.">
+                        <h4>Akshay </h4>
+                        <p>Birthday Party Client</p>
                     </div>
                 </div>
             </div>
@@ -270,7 +266,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         <div class="cicon">
         <p><i class="fas fa-map-marker-alt"></i> Your Office Address</p>
         <p><i class="fas fa-phone"></i> +91 8086316245</p>
-        <p><i class="fas fa-envelope"></i> info@eventpro.com</p>
+        <p><i class="fas fa-envelope"></i> info@Akiran.com</p>
         </div>
         <div class="social-links">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -311,7 +307,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <h3>EventPro</h3>
+                    <h3>Akiran</h3>
                     <p>Creating unforgettable events with passion and precision.</p>
                 </div>
                 <div class="footer-links">
@@ -319,23 +315,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
                         <li><a href="#events">Services</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
                     </ul>
-                </div>
-                <div class="footer-social">
-                    <h3>Follow Us</h3>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 EventPro. All Rights Reserved.</p>
+                <p>&copy; 2023 Akiran. All Rights Reserved.</p>
             </div>
         </div>
     </footer>

@@ -46,7 +46,7 @@ $result = $conn->query($sql);
             object-fit: ;
         }
         .card-content {
-            padding: 15px;
+            padding-top: 15px;
             flex: 1;
         }
         .card h2 {

@@ -168,33 +168,20 @@ if (registerForm) {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-            const loadingScreen = document.getElementById('loadingScreen');
+    const homeSection = document.querySelector('.home');
+    const heroContent = document.querySelector('.hero-content');
 
-            // Hide loading screen after 2 seconds (simulating processing time)
-            setTimeout(function () {
-                loadingScreen.style.opacity = '0';
+    if (homeSection) {
+        setTimeout(() => {
+            homeSection.classList.add('fade-in');
 
-                // Remove loading screen from DOM after fade out
-                setTimeout(function () {
-                    loadingScreen.style.display = 'none';
-                    createConfetti();
-                }, 500);
-            }, 2000);
-        });
-// Create confetti elements
-        function createConfetti() {
-            const colors = ['#4facfe', '#00f2fe', '#a6c1ee', '#fbc2eb', '#ff9a9e'];
-            const container = document.querySelector('container ');
-
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.width = Math.random() * 10 + 5 + 'px';
-                confetti.style.height = Math.random() * 10 + 5 + 'px';
-                confetti.style.animation = `confettiFall ${Math.random() * 3 + 2}s linear forwards`;
-                confetti.style.animationDelay = Math.random() * 2 + 's';
-                container.appendChild(confetti);
+            // Then fade in the text inside after a short delay
+            if (heroContent) {
+                setTimeout(() => {
+                    heroContent.classList.add('fade-in');
+                }, 800); // adjust delay to match .home fade timing
             }
-        }
+
+        }, 300); // initial delay before .home fade starts
+    }
+});
