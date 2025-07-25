@@ -123,20 +123,6 @@ $images = [
             flex: 1 1 65%;
         }
 
-        .price {
-            text-align: right;
-            color: #fd0a0aff;
-            font-weight: bold;
-            font-size: 1.8rem;
-            flex: 1 1 30%;
-        }
-
-        .price small {
-            display: block;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
         .main-content {
             display: flex;
             flex-wrap: wrap;
@@ -148,7 +134,7 @@ $images = [
         }
 
         .overview .tab {
-            background: #f50c0cff;
+            background: #000000ff;
             color: #fff;
             padding: 10px 20px;
             font-weight: bold;
@@ -174,7 +160,7 @@ $images = [
         }
 
         .booking-form h2 {
-            color: #f60c0cff;
+            color: #000000ff;
             margin-bottom: 20px;
             font-size: 1.3rem;
         }
@@ -200,7 +186,7 @@ $images = [
             margin-top: 20px;
             padding: 12px;
             width: 100%;
-            background-color: #f61010ff;
+            background-color: #000000ff;
             color: white;
             border: none;
             border-radius: 5px;
@@ -223,11 +209,6 @@ $images = [
             .main-content {
                 flex-direction: column;
             }
-
-            .header h1,
-            .price {
-                flex: 1 1 100%;
-            }
         }
 
         a {
@@ -237,7 +218,7 @@ $images = [
         }
 
         .return {
-            background: #f40e0eff;
+            background: #000000ff;
             color: #fff;
             padding: 10px 20px;
             font-weight: bold;

@@ -26,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['contact_submit'])) {
     $stmt->close();
 }
 
-// Auth Handling
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     $action = $_POST['action'];
 
@@ -266,7 +265,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         <div class="cicon">
         <p><i class="fas fa-map-marker-alt"></i> Your Office Address</p>
         <p><i class="fas fa-phone"></i> +91 8086316245</p>
-        <p><i class="fas fa-envelope"></i> info@Akiran.com</p>
+        <p><i class="fas fa-envelope"></i> info@akiran.com</p>
         </div>
         <div class="social-links">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
