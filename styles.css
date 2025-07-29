@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Emblema+One&family=Ephesis&family=Irish+Grover&family=Manufacturing+Consent&family=Marck+Script&family=Mirza:wght@400;500;600;700&family=New+Rocker&family=Satisfy&display=swap');
 :root {
     --primary-color: #f42e1c;
     --secondary-color: #f42727;
@@ -23,6 +24,7 @@ body {
     color: var(--text-color);
     background-color: var(--light-color);
     overflow-x: hidden;
+    transition: background-color 0.5s, color 0.5s;
 }
 body::-webkit-scrollbar {
     display: none;
@@ -58,7 +60,7 @@ body::-webkit-scrollbar {
 }
 
 section {
-    padding: 80px 0;
+    padding: 60px 0;
 }
 
 .title1{
@@ -164,6 +166,7 @@ img {
 }
 
 .logo {
+    font-family: "New Rocker", system-ui;
     font-size: 1.8rem;
     font-weight: 700;
     color: #f01111;
@@ -295,11 +298,13 @@ img {
 
 .hero-content h1 {
     font-size: 3.5rem;
+    font-family: "New Rocker", system-ui;
     margin-bottom: 20px;
 }
 
 .hero-content p {
     font-size: 1.2rem;
+    font-family: "Merienda", cursive;   
     max-width: 700px;
     margin: 0 auto 30px;
 }
@@ -450,100 +455,58 @@ img {
 }
 
 /* Footer */
-.footer {
-    background-color: #800000;
-    color: var(--white);
-    padding: 60px 0 20px;
+.clean-footer{
+    background-color: #c7c4c4;
+    
+}
+.clean-footer h3 {
+    font-size: 2.2rem;
+    font-family: "Manufacturing Consent", system-ui;
+    font-weight: 400;
+    
 }
 
-.footer-content {
+.clean-footer p {
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+.clean-footer .social-icons {
     display: flex;
-    gap: 50px;
-    margin-bottom: 40px;
-}
-
-.footer-about {
-    flex: 2;
-}
-
-.footer-about h3 {
-    color: var(--white);
-    margin-bottom: 20px;
-}
-
-.footer-about p {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.footer-links {
-    flex: 1;
-}
-
-.footer-links h3 {
-    color: var(--white);
-    margin-bottom: 20px;
-}
-
-.footer-links ul {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: 10px;
-}
-
-.footer-links a {
-    color: rgba(255, 255, 255, 0.7);
-    transition: var(--transition);
-}
-
-.footer-links a:hover {
-    color: var(--white);
-    padding-left: 5px;
-}
-
-.footer-social {
-    flex: 1;
-}
-
-.footer-social h3 {
-    color: #ddd;
-    margin-bottom: 20px;
-}
-
-.social-icons {
-    display: flex;
+    justify-content: center;
     gap: 15px;
 }
 
-.social-icons i{
-    color: #ddd;
-}
-
-.social-icons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.clean-footer .social-icons a {
+    background-color: #ffffff;
+    color: #000000;
     width: 40px;
     height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--white);
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
-.social-icons a:hover {
+.clean-footer .social-icons a:hover {
     background-color: var(--primary-color);
-    transform: translateY(-3px);
+    color: #fff;
 }
 
-.footer-bottom {
-    text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.9rem;
+.clean-footer .footer-bottom {
+    font-size: 15px;
+    margin-top: 10px;
+    color: #000000;
 }
+
+
+.footer-logo {
+    width: 100px;
+    height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
 
 /* Responsive Styles */
 @media (max-width: 992px) {
@@ -733,3 +696,51 @@ img {
     background-color: #f0f0f0;
 }
 
+/* WhatsApp Chat Icon */
+.whatsapp-icon {
+    position: fixed;
+    bottom: 90px;
+    right: 15px;
+    z-index: 1000;
+    background-color: #25D366;
+    color: white;
+    padding: 15px;
+    border-radius: 38%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-icon:hover {
+    transform: scale(1.15);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+
+/* Go to Top Button */
+#goToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    z-index: 1000;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#goToTopBtn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}

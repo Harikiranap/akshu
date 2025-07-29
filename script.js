@@ -110,12 +110,9 @@ if (registerForm) {
     });
 }
 
-// Form submissions remain the same as before
-
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // Add your contact form submission logic here
             alert('Thank you for your message! We will get back to you soon.');
             this.reset();
         });
@@ -185,3 +182,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 300); // initial delay before .home fade starts
     }
 });
+
+// Go to Top button functionality
+const goToTopBtn = document.getElementById('goToTopBtn');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+        goToTopBtn.style.display = 'block';
+    } else {
+        goToTopBtn.style.display = 'none';
+    }
+});
+
+goToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+

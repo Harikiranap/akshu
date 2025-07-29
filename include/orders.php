@@ -34,6 +34,7 @@ $result = $stmt->get_result();
 <html>
 <head>
     <title>Your Bookings</title>
+    <link id='favicon' rel="shortcut icon" href="images/AE.png" type="image/x-png">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -87,7 +88,13 @@ $result = $stmt->get_result();
         .card-content strong {
             display: inline-block;
             width: 130px;
-            color: #444;
+            color: black;
+        }
+
+        .card-content p {
+            color:red;
+            font-weight:bolder;
+            font-size:20px;
         }
 
         .no-orders {
@@ -127,7 +134,7 @@ $result = $stmt->get_result();
     <?php if ($result->num_rows > 0): ?>
         <?php while($row = $result->fetch_assoc()): ?>
             <div class="card">
-                <img src="admin/upload/Open Buffet.jpeg" alt="Event Image">
+                <img src="images/AE.png" alt="Event Image">
                 <div class="card-content">
                     <div><strong>Event:</strong> <?= htmlspecialchars($row['event_name']) ?></div>
                     <div><strong>Name:</strong> <?= htmlspecialchars($row['name']) ?></div>
@@ -138,6 +145,7 @@ $result = $stmt->get_result();
                     <div><strong>Venue:</strong> <?= htmlspecialchars($row['placeofhall']) ?></div>
                     <div><strong>Seats:</strong> <?= htmlspecialchars($row['seats']) ?></div>
                     <div><strong>Booked On:</strong> <?= htmlspecialchars($row['bookedon']) ?></div>
+                    <p>" Our team will reach out to you shortly "</p>
                 </div>
             </div>
         <?php endwhile; ?>

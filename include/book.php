@@ -1,15 +1,6 @@
 <?php
 session_start();
-
-if (!isset($_SESSION['email'])) {
-    echo '<script>
-    alert("You must be logged in to book event.");
-    window.location.href = "../index.php";
-</script>';
-    exit;
-}
-
-$email = $_SESSION['email'];
+$email = $_SESSION['email'] ?? null;
 
 $host = 'localhost';
 $user = 'root';
@@ -22,42 +13,50 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    $event = $conn->real_escape_string($_POST['event'] ?? '');
     $from_date = $conn->real_escape_string($_POST['from_date'] ?? '');
     $to_date = $conn->real_escape_string($_POST['to_date'] ?? '');
-    $hall = $conn->real_escape_string($_POST['hall'] ?? '');
-    $seats = (int)($_POST['seats'] ?? 0);
-    $name = $conn->real_escape_string($_POST['cust'] ?? '');
-    $number = $conn->real_escape_string($_POST['number'] ?? '');
-    
-    if (empty($event) || empty($from_date) || empty($to_date) || empty($hall) || empty($name) || empty($number)) {
-        echo "<script>alert('Please fill all required fields.');</script>";
+    if (strtotime($from_date) > strtotime($to_date)) {
+    echo "<script>alert('From Date cannot be after To Date.');window.location.href = '../index.php'</script>";
+    exit;
+}
+    if (!$email) {
+        echo "<script>alert('You must be logged in to submit the form.');</script>";
     } else {
-        $stmt = $conn->prepare("INSERT INTO bookings (event_name, frm_date, to_date, placeofhall, seats, name, number, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        // Your form handling logic here
+        $event = $conn->real_escape_string($_POST['event'] ?? '');
+        $from_date = $conn->real_escape_string($_POST['from_date'] ?? '');
+        $to_date = $conn->real_escape_string($_POST['to_date'] ?? '');
+        $hall = $conn->real_escape_string($_POST['hall'] ?? '');
+        $seats = (int)($_POST['seats'] ?? 0);
+        $name = $conn->real_escape_string($_POST['cust'] ?? '');
+        $number = $conn->real_escape_string($_POST['number'] ?? '');
 
-if ($stmt) {
-    // Bind the parameters: s = string, i = integer
-    $stmt->bind_param("ssssisss", $event, $from_date, $to_date, $hall, $seats, $name, $number, $email);
+        if (empty($event) || empty($from_date) || empty($to_date) || empty($hall) || empty($name) || empty($number)) {
+            echo "<script>alert('Please fill all required fields.');</script>";
+        } else {
+            $stmt = $conn->prepare("INSERT INTO bookings (event_name, frm_date, to_date, placeofhall, seats, name, number, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-    if ($stmt->execute()) {
-        echo "<script>
-            if (confirm('Booking successful!')) {
-                window.location.href = 'submit.html';
+            if ($stmt) {
+                $stmt->bind_param("ssssisss", $event, $from_date, $to_date, $hall, $seats, $name, $number, $email);
+
+                if ($stmt->execute()) {
+                    echo "<script>
+                        if (confirm('Are You Sure to Book Event..!')) {
+                            window.location.href = 'submit.html';
+                        }
+                    </script>";
+                } else {
+                    echo "<script>alert('Execute Error: " . addslashes($stmt->error) . "');</script>";
+                }
+
+                $stmt->close();
+            } else {
+                echo "<script>alert('Prepare Failed: " . addslashes($conn->error) . "');</script>";
             }
-        </script>";
-    } else {
-        echo "<script>alert('Execute Error: " . addslashes($stmt->error) . "');</script>";
-    }
-
-    $stmt->close();
-} else {
-    echo "<script>alert('Prepare Failed: " . addslashes($conn->error) . "');</script>";
-}
-
-        $stmt->close();
+        }
     }
 }
+
 
 // Get event details
 $event_id = (int)($_GET['id'] ?? 0);
@@ -86,7 +85,7 @@ $images = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EventEase - Book Event</title>
-    
+    <link id='favicon' rel="shortcut icon" href="images/AE.png" type="image/x-png">
     <style>
         * {
             margin: 0;
@@ -220,11 +219,10 @@ $images = [
         .return {
             background: #000000ff;
             color: #fff;
-            padding: 10px 20px;
+            padding: 15px 20px;
             font-weight: bold;
-            border-radius: 5px 10px 0 0;
-            margin-bottom: 10px;
-            width: fit-content;
+            border-radius: 20px 20px 0 0;
+            
         }
 
         .slider-container {
@@ -424,7 +422,7 @@ $images = [
             setTimeout(() => {
                 document.getElementById('loader').style.display = 'none';
                 document.getElementById('main-content').style.display = 'block';
-            }, 1000);
+            }, 2000);
         });
 
         // Image Slider Functionality

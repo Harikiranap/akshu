@@ -75,7 +75,7 @@ $result = $conn->query($sql);
 </head>
 <body>
 
-<h1 style="text-align:center; margin-bottom: 30px;">Available Events</h1>
+<h1 style="text-align:center; margin-bottom: 30px; margin-top:0px;">Available Events</h1>
 
 <div class="card-container">
     <?php while($row = $result->fetch_assoc()): ?>

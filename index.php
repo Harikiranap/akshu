@@ -3,11 +3,6 @@ session_start();
 require 'include/dbmain/db.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['contact_submit'])) {
 
-    if (empty($_SESSION['email']) || empty($_SESSION['id'])) {
-        echo "<script>alert('You must be logged in to send a message.'); window.location.href='index.php';</script>";
-        exit;
-    }
-
     $userId = $_SESSION['id'];
     $email = $_SESSION['email'];
     $name = htmlspecialchars(trim($_POST['name']));
@@ -97,14 +92,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aakiran - Event Management</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+  <link id='favicon' rel="shortcut icon" href="include/images/AE.png" type="image/x-png">
 </head>
 <body>
+
+<!-- WhatsApp Chat Icon -->
+<a href="https://wa.me/919000000000" class="whatsapp-icon" target="_blank" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp fa-2x"></i>
+</a>
+<!-- Go to Top Button -->
+<button id="goToTopBtn" title="Go to Top">&#8679;</button>
+
+
 
 <!-- Navigation Bar -->
 <nav class="navbar">
   <div class="container">
-    <a href="#about" class="logo">Akiran<span style="color:#000000"> Events</span></a>
+    
+    <a href="#about" class="logo"><img src="include/images/AE-bg.png" style="height: 70px; vertical-align: middle; margin-right: 8px;">Akiran<span style="color:#000000"> Events</span></a>
     <div class="nav-links">
       <a href="#home" class="nav-link">Home</a>
       <a href="#about" class="nav-link">About Us</a>
@@ -125,6 +132,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         <?php else: ?>
           <button id="authBtn" class="btn btn-primary">Login</button>
         <?php endif; ?>
+</button>
+
       </div>
     </div>
     <button class="hamburger">
@@ -187,7 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Lighting Up Your Special Moments</h1>
+                <h1>Bringing Light to Life's Brighest Moments</h1>
                 <p>Professional event management services for weddings, corporate events, and more.</p>
                 <a href="#events" class="btn btn-primary">Get Started</a>
             </div>
@@ -201,8 +210,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             <h2>About Us</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Akiran is a premier event management company dedicated to creating memorable experiences for our clients. With over 10 years of experience in the industry, we specialize in weddings, corporate events, and private parties.</p>
-                    <p>Our team of professional event planners will work closely with you to bring your vision to life, handling every detail from venue selection to catering and entertainment.</p>
+                    <p>At Akiran, we specialize in crafting memorable and seamless events tailored to your vision.
+                      From elegant weddings to corporate galas, we manage every detail with creativity and precision.
+                      Our dedicated team ensures flawless execution and personalized service.
+                      We believe in turning your dreams into reality, stress-free.
+                      Let us elevate your moments into unforgettable experiences.</p>
                 </div>
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Event Team">
@@ -222,11 +234,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             <div class="testimonial-slider">
                 <div class="testimonial">
                     <div class="testimonial-content">
-                        <p>"Akiran made our wedding day absolutely perfect! They handled everything seamlessly and we didn't have to worry about a thing."</p>
+                        <p>"Akiran made our wedding day absolutely perfect! They handled everything seamlessly and we didn't have to worry about a thing. I can't recommend Akiran enough!"</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="include/images/client.png" alt="Sarah J.">
-                        <h4>Kshamya </h4>
+                        <img src="include/images/client.png" alt=" ">
+                        <h4>Bhavish</h4>
                         <p>Wedding Client</p>
                     </div>
                 </div>
@@ -235,8 +247,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                         <p>"The corporate retreat organized by Akiran was flawless. Our team had an amazing time and everything was perfectly executed."</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="include/images/client.png" alt="Michael T.">
-                        <h4>Vedansh </h4>
+                        <img src="include/images/client.png" alt=" ">
+                        <h4>Vamshi</h4>
                         <p>Corporate Client</p>
                     </div>
                 </div>
@@ -245,14 +257,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                         <p>"I can't recommend Akiran enough! They took care of every detail for my daughter's sweet sixteen and it was magical."</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="include/images/client.png" alt="Lisa M.">
-                        <h4>Akshay </h4>
+                        <img src="include/images/client.png" alt="">
+                        <h4>Akshay</h4>
                         <p>Birthday Party Client</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
 
 
 <!-- Contact Section -->
@@ -266,12 +280,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         <p><i class="fas fa-map-marker-alt"></i> Your Office Address</p>
         <p><i class="fas fa-phone"></i> +91 8086316245</p>
         <p><i class="fas fa-envelope"></i> info@akiran.com</p>
-        </div>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
       <div class="contact-form">
@@ -302,28 +310,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 </section>
 
 <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>Akiran</h3>
-                    <p>Creating unforgettable events with passion and precision.</p>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#events">Services</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Akiran. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <footer class="clean-footer">
+  <div class="container">
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <img src="include/images/AE-bg.png" alt="Akiran Logo" class="footer-logo">
+      <h3><span style=color:red;>Akiran</span> Events</h3>
+      <p>Making your events unforgettable – with elegance, style, and precision.</p>
+      <div class="social-icons" style="margin: 20px 0;">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 Akiran All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+
+
 
 <script src="script.js"></script>
 </body>

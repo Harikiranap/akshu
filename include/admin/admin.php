@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Admin Panel</title>
+    <link id='favicon' rel="shortcut icon" href="../images/AE.png" type="image/x-png">
     <style>
         :root {
             --primary-color: #4a6bff;
@@ -185,7 +186,7 @@
 <body>
     <aside class="sidebar">
         <div class="sidebar-header">
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3cc02e4b-5f43-4bb0-ae58-8917ff69159a.png" />
+            <img src="../images/AE.png" />
             <div class="sidebar-title">Admin Panel</div>
         </div>
         <ul class="nav-menu">
@@ -222,7 +223,7 @@
             <h1 class="page-title">Admin Dashboard</h1>
             <div class="user-profile">
                 <span>Admin User</span>
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/da4f9b1c-2624-4eac-8fe6-0684fccd0376.png" />
+                <img src="../images/AE.png" />
             </div>
         </header>
 
